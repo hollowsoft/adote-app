@@ -1,9 +1,12 @@
 name: main
 
 on:
-  push:
+  pull_request:
     branches:
       - main
+defaults:
+  run:
+    working-directory: oreo
 jobs:
   run:
     runs-on: ubuntu-latest
