@@ -6,7 +6,7 @@ on:
       - main
 defaults:
   run:
-    working-directory: Oreo
+    working-directory: oreo
 jobs:
   run:
     runs-on: ubuntu-latest
