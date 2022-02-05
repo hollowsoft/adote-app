@@ -21,9 +21,11 @@ jobs:
         run: yarn install
       - name: build
         run: yarn build
+      - name: export
+        run: yarn export
       - name: deploy
         uses: reggionick/s3-deploy@v3
         with:
-          folder: build
+          folder: out
           bucket: ${{ env.BUCKET }}
           bucket-region: ${{ env.AWS_DEFAULT_REGION }}
