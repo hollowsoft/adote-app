@@ -28,7 +28,6 @@ jobs:
         run: yarn export
       - name: deploy
         uses: reggionick/s3-deploy@v3
-        working-directory: /
         with:
           folder: out
           bucket: ${{ env.BUCKET }}
