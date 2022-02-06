@@ -13,11 +13,13 @@ jobs:
   deploy:
     env:
       BUCKET: adote.se
+      AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+      AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
       AWS_DEFAULT_REGION: sa-east-1
     runs-on: ubuntu-latest
     steps:
       - name: checkout
-        uses: actions/checkout@master
+        uses: actions/checkout@v2
       - name: install
         run: yarn install
       - name: build
@@ -25,12 +27,10 @@ jobs:
       - name: export
         run: yarn export
       - name: deploy
-        uses: jakejarvis/s3-sync-action@master
-        env:
-          AWS_S3_BUCKET: ${{ env.BUCKET }}
-          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
-          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-          AWS_REGION: ${{ env.AWS_DEFAULT_REGION }}
-          SOURCE_DIR: 'oreo/out'
+        uses: reggionick/s3-deploy@v3
+        working-directory: ./
         with:
-          args: --delete
+          folder: out
+          bucket: ${{ env.BUCKET }}
+          bucket-region: ${{ env.AWS_DEFAULT_REGION }}
+          delete-removed: true
