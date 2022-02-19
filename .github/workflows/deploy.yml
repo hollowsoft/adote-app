@@ -11,7 +11,7 @@ defaults:
 jobs:
   deploy:
     env:
-      AWS_BUCKET: adote.se
+      AWS_S3_BUCKET: adote.se
       AWS_REGION: sa-east-1
       BUILD_DIRECTORY: app/out
     runs-on: ubuntu-latest
@@ -27,7 +27,6 @@ jobs:
       - name: deploy
         uses: jakejarvis/s3-sync-action@master
         env:
-          AWS_S3_BUCKET: ${{ env.AWS_BUCKET }}
           AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           AWS_REGION: ${{ env.AWS_REGION }}
