@@ -104,6 +104,10 @@ dist
 .tern-port
 
 # terraform
-*.hcl
+*.tfvars
+
 *.tfstate
+*.tfstate.*
+
 *.terraform
+*.terraform.*
