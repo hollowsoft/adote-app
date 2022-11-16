@@ -1,36 +1,65 @@
-terraform {
-  required_providers {
-    aws = {
-      source = "hashicorp/aws"
-      version = "3.74.0"
-    }
-  }
-}
-
 provider "aws" {
+  region = var.region
+}
+
+provider "cloudflare" {
   
 }
 
-resource "aws_s3_bucket" "bucket" {
-  bucket = var.bucket
-  
+resource "aws_s3_bucket" "app" {
+  bucket = var.domain
+}
+
+resource "aws_s3_bucket_acl" "app" {
+  bucket = aws_s3_bucket.app.id
+
   acl = "public-read"
-  policy = data.aws_iam_policy_document.policy.json
+}
 
-  website {
-    index_document = "index.html"
-    error_document = "index.html"
+resource "aws_s3_bucket_policy" "app" {
+  bucket = aws_s3_bucket.app.id
+
+  policy = jsonencode({
+    Version = "2012-10-17"
+    Statement = [{
+      Sid = "PublicReadGetObject"
+      Action = "s3:GetObject"
+      Effect = "Allow"
+      Principal = "*"
+      Resource = [
+        aws_s3_bucket.app.arn,
+        "${aws_s3_bucket.app.arn}/*"
+      ]
+    }]
+  })
+}
+
+resource "aws_s3_bucket_website_configuration" "app" {
+  bucket = aws_s3_bucket.app.id
+
+  index_document {
+    suffix = "index.html"
+  }
+
+  error_document {
+    key = "error.html"
   }
 }
 
-data "aws_iam_policy_document" "policy" {
-  statement {
-    actions = ["s3:GetObject"]
-    resources = ["arn:aws:s3:::${var.bucket}/*"]
-
-    principals {
-      identifiers = ["*"]
-      type = "*"
-    }
+data "cloudflare_zones" "domain" {
+  filter {
+    name = var.domain
   }
+}
+
+resource "cloudflare_record" "record" {
+  zone_id = data.cloudflare_zones.domain.zones[0].id
+
+  name = var.domain
+  value = aws_s3_bucket_website_configuration.app.website_endpoint
+
+  type = "CNAME"
+
+  ttl = 1
+  proxied = true
 }
