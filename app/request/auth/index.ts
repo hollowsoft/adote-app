@@ -5,7 +5,8 @@ import {
 
 import {
   AuthMailResponse,
-  AuthMailCodeResponse
+  AuthMailCodeResponse,
+  AuthTokenResponse
 } from './response'
 
 export const auth = (mail: string): Promise<Response<AuthMailResponse, unknown>> => request
@@ -15,3 +16,7 @@ export const auth = (mail: string): Promise<Response<AuthMailResponse, unknown>>
 export const code = (mail: string, code: string): Promise<Response<AuthMailCodeResponse, unknown>> => request
   .post('/auth/mail/code', { mail, code })
   .then((response: Response<AuthMailCodeResponse, unknown>) => response)
+
+export const token = (): Promise<Response<AuthTokenResponse, unknown>> => request
+  .post('/auth/token')
+  .then((response: Response<AuthTokenResponse, unknown>) => response)
