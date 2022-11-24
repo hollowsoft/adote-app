@@ -1,4 +1,4 @@
-export type GetCurrentResponse = {
+export type UserResponse = {
   readonly create: Date
   readonly mail: string
   readonly name: string
