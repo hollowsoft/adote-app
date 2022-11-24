@@ -4,18 +4,18 @@ export type GetCurrentResponse = {
   readonly name: string
   readonly image: string
   readonly description: string
-  readonly location: LocationResponse
   readonly contact: ContactResponse
-}
-
-type LocationResponse = {
-  readonly id: string
-  readonly city: string
-  readonly state: string
+  readonly location: LocationResponse 
 }
 
 type ContactResponse = {
   readonly mail: string
   readonly phone: string
   readonly social: string
+}
+
+type LocationResponse = {
+  readonly id: string
+  readonly city: string
+  readonly state: string
 }

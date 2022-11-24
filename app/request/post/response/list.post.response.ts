@@ -8,8 +8,8 @@ export type ListPostResponse = {
   readonly description: string
   readonly image: string[]
   readonly pet: PetResponse
-  readonly location: LocationResponse
   readonly user: UserResponse
+  readonly location: LocationResponse
 }
 
 type PetResponse = {
@@ -25,12 +25,6 @@ type BreedResponse = {
   readonly name: string
 }
 
-type LocationResponse = {
-  readonly id: string
-  readonly city: string
-  readonly state: string
-}
-
 type UserResponse = {
   readonly create: Date
   readonly name: string
@@ -43,4 +37,10 @@ type ContactResponse = {
   readonly mail: string
   readonly phone: string
   readonly social: string
+}
+
+type LocationResponse = {
+  readonly id: string
+  readonly city: string
+  readonly state: string
 }
