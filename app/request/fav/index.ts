@@ -17,5 +17,5 @@ export const add = (id: string): Promise<Response<AddFavResponse, unknown>> => r
   .then((response: Response<AddFavResponse, unknown>) => response)
 
 export const remove = (id: string): Promise<Response<void, unknown>> => request
-  .delete('/fav')
+  .delete(`/fav/${id}`)
   .then((response: Response<void, unknown>) => response)
