@@ -3,12 +3,14 @@ import {
   types
 } from 'mobx-state-tree'
 
-import { Location } from './type/location'
+import { Location } from './type'
+
+import * as build from './build'
 
 import * as request from '../../request/location'
 
-import { Response } from '../../request/request'
-import { LocationResponse } from '../../request/location/response/location.response'
+import { Response } from '../../request/response'
+import { SearchLocationResponse } from '../../request/location/response'
 
 export const LocationStore = types
   .model({
@@ -16,13 +18,9 @@ export const LocationStore = types
   })
   .actions((self) => {
     const search = flow(function*(term: string) {
-      const { data: response }: Response<LocationResponse[], unknown> = yield request.search(term)
+      const { data: location }: Response<SearchLocationResponse[], unknown> = yield request.search(term)
 
-      const list = response.map((location) => Location.create({
-        id: location.id,
-        city: location.city,
-        state: location.state,
-      }))
+      const list = location.map((location) => build.location(location))
 
       self.list.replace(list)
     })

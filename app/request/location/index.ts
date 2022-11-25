@@ -3,8 +3,8 @@ import {
   Response
 } from '../request'
 
-import { LocationResponse } from './response/location.response'
+import { SearchLocationResponse } from './response'
 
-export const search = (term: string): Promise<Response<LocationResponse[], unknown>> => request
+export const search = (term: string): Promise<Response<SearchLocationResponse[], unknown>> => request
   .get('/location/search', { params: { term } })
-  .then((response: Response<LocationResponse[], unknown>) => response)
+  .then((response: Response<SearchLocationResponse[], unknown>) => response)

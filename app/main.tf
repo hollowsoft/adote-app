@@ -52,7 +52,7 @@ data "cloudflare_zones" "domain" {
   }
 }
 
-resource "cloudflare_record" "record" {
+resource "cloudflare_record" "domain" {
   zone_id = data.cloudflare_zones.domain.zones[0].id
 
   name = var.domain
@@ -60,6 +60,18 @@ resource "cloudflare_record" "record" {
 
   type = "CNAME"
 
+  ttl = 1
+  proxied = true
+}
+
+resource "cloudflare_record" "www" {
+  zone_id = data.cloudflare_zones.domain.zones[0].id
+
+  name = "wwww"
+  value = var.domain
+
+  type = "CNAME"
+  
   ttl = 1
   proxied = true
 }

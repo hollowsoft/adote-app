@@ -1,4 +1,4 @@
-export type AuthMailCodeResponse = {
+export type AuthTokenResponse = {
   readonly token: string
   readonly refresh: string
 }
