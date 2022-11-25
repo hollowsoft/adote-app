@@ -1,7 +1,6 @@
-import {
-  request,
-  Response
-} from '../request'
+import { request } from '../request'
+
+import { Response } from '../response'
 
 import {
   AuthMailResponse,
