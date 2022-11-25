@@ -1,7 +1,7 @@
 import { Size } from '../../../type/size.enum'
 import { Gender } from '../../../type/gender.enum'
 
-export type GetPostResponse = {
+export type PostResponse = {
   readonly id: string
   readonly create: Date
   readonly title: string
