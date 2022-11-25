@@ -5,18 +5,15 @@ import {
 
 import { UpdateUserRequest } from './request'
 
-import {
-  GetCurrentResponse,
-  UpdateUserResponse
-} from './response'
+import { UserResponse } from './response'
 
-export const current = (): Promise<Response<GetCurrentResponse, unknown>> => request
+export const current = (): Promise<Response<UserResponse, unknown>> => request
   .get('/user/current')
-  .then((response: Response<GetCurrentResponse, unknown>) => response)
+  .then((response: Response<UserResponse, unknown>) => response)
 
-export const update = (user: UpdateUserRequest): Promise<Response<UpdateUserResponse, unknown>> => request
+export const update = (user: UpdateUserRequest): Promise<Response<UserResponse, unknown>> => request
   .put('/user', { user })
-  .then((response: Response<UpdateUserResponse, unknown>) => response)
+  .then((response: Response<UserResponse, unknown>) => response)
 
 export const image = (): Promise<Response<unknown, unknown>> => request
   .post('/user/image')

@@ -1,7 +1,5 @@
-import { GetCurrentResponse } from './get.current.response'
-import { UpdateUserResponse } from './update.user.response'
+import { UserResponse } from './user.response'
 
 export type {
-  GetCurrentResponse,
-  UpdateUserResponse
+  UserResponse
 }
