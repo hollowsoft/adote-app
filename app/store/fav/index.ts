@@ -9,7 +9,7 @@ import * as build from './build'
 
 import * as request from '../../request/fav'
 
-import { Response } from '../../request/request'
+import { Response } from '../../request/response'
 import { ListFavResponse } from '../../request/fav/response'
 
 export const FavStore = types

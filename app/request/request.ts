@@ -1,4 +1,4 @@
-import Ax, { AxiosResponse as Response } from 'axios'
+import Ax from 'axios'
 
 export const request = Ax.create({
   baseURL: '',
@@ -7,5 +7,3 @@ export const request = Ax.create({
     'Content-Type': 'application/json'
   }
 })
-
-export type { Response }

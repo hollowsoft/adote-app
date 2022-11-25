@@ -4,14 +4,15 @@ import {
 } from 'mobx-state-tree'
 
 import { Kind } from '../../type/kind.enum'
+
 import { Breed } from './type'
+
+import * as build from './build'
 
 import * as request from '../../request/breed'
 
-import { Response } from '../../request/request'
+import { Response } from '../../request/response'
 import { ListBreedResponse } from '../../request/breed/response'
-
-import * as build from './build'
 
 export const BreedStore = types
   .model({
