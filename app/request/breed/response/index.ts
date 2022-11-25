@@ -1,5 +1,5 @@
-import { BreedResponse } from './breed.response'
+import { ListBreedResponse } from './list.breed.response'
 
 export type {
-  BreedResponse
+  ListBreedResponse
 }

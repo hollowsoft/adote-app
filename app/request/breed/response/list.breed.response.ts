@@ -1,6 +1,5 @@
-export type BreedResponse = {
+export type ListBreedResponse = {
   readonly id: string
-  readonly key: string
   readonly name: string
   readonly kind: string
 }
