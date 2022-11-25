@@ -9,7 +9,7 @@ import * as build from './build'
 
 import * as request from '../../request/user'
 
-import { Response } from '../../request/request'
+import { Response } from '../../request/response'
 
 import { UpdateUserRequest } from '../../request/user/request'
 

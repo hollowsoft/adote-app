@@ -12,7 +12,7 @@ import * as build from './build'
 
 import * as request from '../../request/auth'
 
-import { Response } from '../../request/request'
+import { Response } from '../../request/response'
 
 import {
   AuthMailResponse,

@@ -9,7 +9,7 @@ import * as build from './build'
 
 import * as request from '../../request/location'
 
-import { Response } from '../../request/request'
+import { Response } from '../../request/response'
 import { SearchLocationResponse } from '../../request/location/response'
 
 export const LocationStore = types
