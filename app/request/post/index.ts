@@ -1,4 +1,5 @@
-import { request } from '../request'
+import { request as req } from '../request'
+import { request } from '../auth.request'
 
 import { Response } from '../response'
 
@@ -12,11 +13,11 @@ import {
   PublishPostResponse
 } from './response'
 
-export const all = (): Promise<Response<PostResponse[], unknown>> => request
+export const all = (): Promise<Response<PostResponse[], unknown>> => req
   .get('/post')
   .then((response: Response<PostResponse[], unknown>) => response)
 
-export const get = (id: string): Promise<Response<PostResponse, unknown>> => request
+export const get = (id: string): Promise<Response<PostResponse, unknown>> => req
   .get('/post')
   .then((response: Response<PostResponse, unknown>) => response)
 
