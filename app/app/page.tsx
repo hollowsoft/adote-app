@@ -1,4 +1,6 @@
-const Home = () => {
+'use client'
+
+const HomePage = () => {
   return (
     <div>
       Adote
@@ -6,4 +8,4 @@ const Home = () => {
   )
 }
 
-export default Home
+export default HomePage
