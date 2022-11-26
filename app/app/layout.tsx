@@ -5,9 +5,6 @@ env.config()
 const Layout = ({ children }: any) => {
   return (
     <html>
-      <head>
-        <title>Adote</title>
-      </head>
       <body>
         {children}
       </body>
