@@ -1,7 +1,9 @@
 import Ax from 'axios'
 
+import * as env from '../env'
+
 const request = Ax.create({
-  baseURL: '',
+  baseURL: env.get<string>('PATH'),
   headers: {
     'Accept': 'application/json',
     'Content-Type': 'application/json'
