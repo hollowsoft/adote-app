@@ -12,11 +12,15 @@
     "build-storybook": "build-storybook"
   },
   "dependencies": {
+    "@chakra-ui/react": "^2.4.1",
+    "@emotion/react": "^11.10.5",
+    "@emotion/styled": "^11.10.5",
     "@linaria/babel-preset": "^4.3.0",
     "@linaria/core": "^4.2.2",
     "@linaria/react": "^4.3.0",
     "axios": "^1.1.3",
     "dotenv": "^16.0.3",
+    "framer-motion": "^7.6.12",
     "mobx": "^6.7.0",
     "mobx-state-tree": "^5.1.6",
     "next": "13.0.0",
