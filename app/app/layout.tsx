@@ -1,8 +1,23 @@
-const Layout = ({ children }: any) => {
+import {
+  ReactNode,
+  FunctionComponent
+} from 'react'
+
+import { Provider } from './provider'
+
+type LayoutProps = {
+  children: ReactNode
+}
+
+const Layout: FunctionComponent<LayoutProps> = (props: LayoutProps) => {
+  const { children } = props
+
   return (
-    <html>
+    <html lang='pt'>
       <body>
-        {children}
+        <Provider>
+          {children}
+        </Provider>
       </body>
     </html>
   )
