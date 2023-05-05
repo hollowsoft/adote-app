@@ -1,7 +1,14 @@
+'use client'
+
 import {
   ReactNode,
   FunctionComponent
 } from 'react'
+
+import {
+  Footer,
+  Header
+} from '@/component'
 
 import { Provider } from './provider'
 
@@ -16,7 +23,11 @@ const Layout: FunctionComponent<LayoutProps> = (props: LayoutProps) => {
     <html lang='pt'>
       <body>
         <Provider>
-          {children}
+          <div>
+            <Header />
+            {children}
+            <Footer />
+          </div>
         </Provider>
       </body>
     </html>

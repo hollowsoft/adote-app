@@ -1,11 +1,30 @@
 'use client'
 
-const HomePage = () => {
+import {
+  useState,
+  FunctionComponent
+} from 'react'
+
+import {
+  Swiper,
+  Search
+} from '@/component'
+
+type AppProps = {
+
+}
+
+const App: FunctionComponent<AppProps> = (props: AppProps) => {
+  const [search, setSearch] = useState<string>('')
+
   return (
-    <div>
-      Adote
-    </div>
+    <main>
+      <Swiper />
+      <Search
+        search={search}
+        onText={setSearch} />
+    </main>
   )
 }
 
-export default HomePage
+export default App
