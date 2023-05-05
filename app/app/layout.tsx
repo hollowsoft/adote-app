@@ -1,12 +1,23 @@
-import * as env from 'dotenv'
+import {
+  ReactNode,
+  FunctionComponent
+} from 'react'
 
-env.config()
+import { Provider } from './provider'
 
-const Layout = ({ children }: any) => {
+type LayoutProps = {
+  children: ReactNode
+}
+
+const Layout: FunctionComponent<LayoutProps> = (props: LayoutProps) => {
+  const { children } = props
+
   return (
-    <html>
+    <html lang='pt'>
       <body>
-        {children}
+        <Provider>
+          {children}
+        </Provider>
       </body>
     </html>
   )
