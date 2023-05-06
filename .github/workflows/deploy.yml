@@ -1,4 +1,4 @@
-name: deploy
+name: Deploy App
 
 on:
   push:
@@ -11,22 +11,20 @@ defaults:
 jobs:
   deploy:
     env:
-      AWS_S3_BUCKET: adote.se
-      AWS_REGION: sa-east-1
       AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
       AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-      SOURCE_DIR: app/out
+      AWS_REGION: ${{ vars.AWS_REGION }}
+      AWS_S3_BUCKET: ${{ vars.AWS_S3_BUCKET }}
+      SOURCE_DIR: app/dist
     runs-on: ubuntu-latest
     steps:
-    - name: checkout
-      uses: actions/checkout@master
-    - name: install
-      run: yarn install
-    - name: build
-      run: yarn build
-    - name: export
-      run: yarn export
-    - name: deploy
-      uses: jakejarvis/s3-sync-action@master
-      with:
-        args: --delete
+      - name: checkout
+        uses: actions/checkout@v3
+      - name: install
+        run: yarn install
+      - name: build
+        run: yarn build
+      - name: deploy
+        uses: jakejarvis/s3-sync-action@master
+        with:
+          args: --delete
