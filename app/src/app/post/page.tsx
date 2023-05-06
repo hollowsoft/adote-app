@@ -1,10 +1,16 @@
 'use client'
 
-const PostPage = () => {
+import { FunctionComponent } from 'react'
+
+type PostPageProps = {
+
+}
+
+const PostPage: FunctionComponent<PostPageProps> = (props: PostPageProps) => {
   return (
-    <div>
+    <main>
       Post Page
-    </div>
+    </main>
   )
 }
 
