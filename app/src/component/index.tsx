@@ -1,5 +1,3 @@
-import { useToast } from './Toast'
-
 import { Avatar } from './Avatar'
 import { Button } from './Button'
 import { Footer } from './Footer'
@@ -10,8 +8,11 @@ import { PostCard } from './PostCard'
 import { RangeSlider } from './RangeSlider'
 import { Search } from './Search'
 import { Spinner } from './Spinner'
+import { Stack } from './Stack'
 import { Swiper } from './Swiper'
 import { Switch } from './Switch'
+
+import { useToast } from './Toast'
 
 export {
   Avatar,
@@ -24,6 +25,7 @@ export {
   RangeSlider,
   Search,
   Spinner,
+  Stack,
   Swiper,
   Switch,
   useToast
