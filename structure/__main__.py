@@ -7,5 +7,5 @@ bucket, configuration = b.run()
 
 zone = z.run(configuration)
 
-pulumi.export('zone', zone.id)
+pulumi.export('zone', zone.zone)
 pulumi.export('bucket', bucket.id)
