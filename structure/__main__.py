@@ -1,11 +1,11 @@
 import pulumi
 
-import zone as z
-import bucket as b
+import zone
+import bucket
 
-bucket, configuration = b.run()
+bucket_id, bucket_url = bucket.run()
 
-zone = z.run(configuration)
+zone_zone = zone.run(bucket_url)
 
-pulumi.export('zone', zone.zone)
-pulumi.export('bucket', bucket.id)
+pulumi.export('zone', zone_zone)
+pulumi.export('bucket', bucket_id)

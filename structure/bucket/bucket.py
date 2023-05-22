@@ -81,4 +81,4 @@ def run():
     )
   )
 
-  return bucket, configuration
+  return bucket.id, configuration.website_endpoint

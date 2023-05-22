@@ -7,7 +7,7 @@ from pulumi_cloudflare import Zone, Record
 
 domain = Config().require('application.domain')
 
-def run(configuration: BucketConfiguration):
+def run(bucket_url: str):
   zone = Zone(
     domain,
     zone=domain,
@@ -18,7 +18,7 @@ def run(configuration: BucketConfiguration):
     domain,
     type=RecordType.CNAME,
     name='@',
-    value=configuration.website_endpoint,
+    value=bucket_url,
     zone_id=zone.id,
     proxied=True
   )
@@ -32,4 +32,4 @@ def run(configuration: BucketConfiguration):
     proxied=True
   )
 
-  return zone
+  return zone.zone
