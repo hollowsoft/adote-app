@@ -1,3 +1,0 @@
-config:
-  aws:region: sa-east-1
-  oreo-front:application.domain: adote.se
